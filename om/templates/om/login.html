@@ -1,0 +1,25 @@
+{% extends 'om/base.html' %}
+
+{% block content %}
+<div class="container">
+
+          <h1 id="homeHeading">Inserte credenciales</h1>
+          <hr>
+          <form method="post" action=".">
+            {% csrf_token %}
+            <div class="form-group">
+
+
+                  <label class="control-label" for="id_username">Usuario</label>
+                  <input class="form-control" type="text" id="id_username" name="username">
+
+                  <label class="control-label" for="id_password">Password</label>
+                  <input class="form-control" type="password" id="id_password" name="password">
+
+                  </br>
+                  <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+
+            </div>
+          </form>
+</div>
+{% endblock content %}

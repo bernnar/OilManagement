@@ -1,0 +1,37 @@
+{% extends 'om/base.html' %}
+
+{% block javascript %}
+  <script>
+    $("#id_fecha").change(function () {
+      var value = $(this).val();
+      var destine = document.getElementById("id_precio");
+      $.ajax({
+        url: '{% url "get_precio" %}',
+        data: {'fecha': value },
+        dataType: 'json',
+        success: function (data) {
+          if (data.precio) {
+            destine.value = data.precio;
+          }
+        }
+      });
+
+    });
+  </script>
+{% endblock %}
+
+
+{% block content %}
+  <main role="main">
+    <div class="container">
+      <h2 class="display-3">Gestor de Depósitos de Combustible</h2>
+      <p>Permite gestionar los depositos, sus existencias, los repostajes individuales y sus deudas asociadas.</p>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {% include 'om/includes/bs4_form.html' with form=form %}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'repostajes' %}" class="btn btn-secondary btn-xl page-scroll">Volver</a>
+      </form>
+    </div>
+  </main>
+{% endblock %}

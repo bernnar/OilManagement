@@ -1,0 +1,18 @@
+{% extends 'om/base.html' %}
+
+
+
+{% block content %}
+  <main role="main">
+    <div class="container">
+      <h2 class="display-3">Nuevo apunte</h2>
+      <p>Permite crear apunte. Incrementa-decrementa saldo entre deudor y acreedor.</p>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {% include 'om/includes/bs4_form.html' with form=form %}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'cobros' %}" class="btn btn-secondary btn-xl page-scroll">Volver</a>
+      </form>
+    </div>
+  </main>
+{% endblock %}

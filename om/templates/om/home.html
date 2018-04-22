@@ -1,0 +1,20 @@
+{% extends 'om/base.html' %}
+
+{% block content %}
+<main role="main">
+
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Gestor de Depósitos de Combustible</h1>
+        <p>Permite gestionar los depositos, sus existencias, los repostajes individuales y sus deudas asociadas.</p>
+        <p>
+          <a class="btn btn-primary btn-lg" href="{% url 'repostajes' %}" role="button">Repostajes &raquo;</a>
+          <a class="btn btn-primary btn-lg" href="{% url 'cobros' %}" role="button">Cobros &raquo;</a>
+        </p>
+      </div>
+    </div>
+
+ </main>
+
+{% endblock %}
